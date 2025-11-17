@@ -1,0 +1,23 @@
+import boto3
+import json
+import os
+import logging
+
+def lambda_handler(event, context):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('Upsc-table')
+
+    try:
+        response = table.delete_item(
+            Key= { 'ID': 'Numbers'  # Replace with the partition key of the item
+            }
+            )
+        return {
+            'statusCode': 200,
+            'body': 'Item deleted successfully'
+        }
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'body': f"Error: {str(e)}"
+        }
