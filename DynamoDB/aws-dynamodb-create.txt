@@ -1,0 +1,44 @@
+import boto3
+import json
+import os
+import time
+from botocore.exceptions import ClientError
+
+def lambda_handler(event, context):
+    # Initialize the DynamoDB client
+    dynamodb = boto3.client('dynamodb')
+
+    # Define the table schema
+    table_name = 'Asset-list'  // table name
+    try:
+        # Create the DynamoDB table
+        response = dynamodb.create_table(
+            TableName=table_name,
+            KeySchema=[
+                {
+                    'AttributeName': 'Laptop',
+                    'KeyType': 'HASH'  # Partition key (HASH)
+                }
+            ],
+            AttributeDefinitions=[
+                {
+                    'AttributeName': 'Laptop',
+                    'AttributeType': 'S'  # String type (for 'ID')
+                }
+            ],
+            ProvisionedThroughput={
+                'ReadCapacityUnits': 5,
+                'WriteCapacityUnits': 5
+            }
+        )
+        # Log the table creation success
+        return {
+            'statusCode': 200,
+            'body': f"Table {table_name} created successfully!"
+        }
+    except ClientError as e:
+        # Log any errors encountered during table creation
+        return {
+            'statusCode': 400,
+            'body': f"Error creating table: {e.response['Error']['Message']}"
+        }
