@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 terraform {
   required_version = ">= 1.5.0"
 
@@ -46,7 +45,6 @@ output "data_table_arn" {
 
 output "data_table_id" {
   value = awscc_connect_data_table.customer_data.id
-=======
 terraform {
   required_version = ">= 1.5.0"
 
@@ -94,5 +92,4 @@ output "data_table_arn" {
 
 output "data_table_id" {
   value = awscc_connect_data_table.customer_data.id
->>>>>>> de8ba87d9ed267aa4af92579920eac3bb90722a3
 }
