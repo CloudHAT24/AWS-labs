@@ -284,3 +284,23 @@
         }
     }
 }
+
+{
+  "Details": {
+    "ContactData": {
+      "Attributes": {},
+      "Channel": "VOICE",
+      "ContactId": "12345e67-890f-1234-a567-890123456789",
+      "InitialContactId": "12345e67-890f-1234-a567-890123456789",
+      "InstanceARN": "arn:aws:connect:us-east-1:123456789012:instance/example-instance-id",
+      "Queue": {
+        "ARN": "arn:aws:connect:us-east-1:123456789012:instance/example-instance-id/queue/example-queue-id",
+        "Name": "BasicQueue"
+      }
+    },
+    "Parameters": {
+      "queueId": "example-queue-id"
+    }
+  },
+  "Name": "ContactFlowEvent"
+}
