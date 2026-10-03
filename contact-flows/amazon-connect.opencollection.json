@@ -1070,12 +1070,12 @@
                 "type": "path",
                 "description": "The Amazon Resource Name (ARN) of the resource."
               },
-              {
-                "name": "tagKeys",
-                "value": "Environment,Team",
-                "type": "query",
-                "description": "The tag keys."
-              }
+              #{
+              #  "name": "tagKeys",
+              #  "value": "Environment,Team",
+              #  "type": "query",
+              #  "description": "The tag keys."
+              #}
             ]
           },
           "docs": "Removes the specified tags from the specified resource."
